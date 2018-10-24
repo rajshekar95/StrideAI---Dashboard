@@ -1,0 +1,40 @@
+<h1 mat-dialog-title><div class="w3-bar">
+  <span class=" w3-left ">Set ID# : &nbsp; &nbsp;{{data.set_id}}</span>
+
+  <button mat-raised-button color="primary" class="w3-right    " *ngIf = "!(editBtn)" (click)="edit()">Edit </button>
+  <button mat-raised-button color="primary" class="w3-right   "  *ngIf = "(editBtn)" (click)="save()">Save </button>
+<button mat-raised-button color="warn" style = "margin-right:10px;"class="w3-right    "  (click)="Delete()">Delete </button>
+</div>
+</h1>
+<div mat-dialog-content class = "dialogContent" >
+  <div class  = "w3-row">
+    <div class = "w3-col m4">Doc Id</div>
+    <div class = "w3-col m4" *ngIf = "(editBtn)"><input type = "text" value = "{{data.doc_id}}" [(ngModel)] ="docid" /></div>
+    <div class = "w3-col m4" *ngIf = "!(editBtn)">{{data.doc_id}}</div>
+  </div><br>
+  <div class  = "w3-roww3-row">
+    <div class = "w3-col m4">Name</div>
+    <div class = "w3-col m4" *ngIf = "(editBtn)"><input type = "text" value = "{{data.name}}" [(ngModel)] = "name" /></div>
+    <div class = "w3-col m4" *ngIf = "!(editBtn)">{{data.name}}</div>
+  </div><br><br>
+  <div class  = "w3-row">
+    <div class = "w3-col m4">Url</div>
+    <div class = "w3-col m4" *ngIf = "(editBtn)"><input type = "text" value = "{{data.preview_url}}" [(ngModel)] = "url"/></div>
+    <div class = "w3-col m4" *ngIf = "!(editBtn)">{{data.preview_url}}</div>
+  </div><br>
+  <div class  = "w3-row">
+    <div class = "w3-col m4">Status</div>
+    <div class = "w3-col m4" *ngIf = "(editBtn)"><input type = "text" value = "{{data.status}}" [(ngModel)] ="status"/></div>
+    <div class = "w3-col m4" *ngIf = "!(editBtn)">{{data.status}}</div>
+  </div><br>
+  <div class  = "w3-row">
+    <div class = "w3-col m4">Uploader</div>
+    <div class = "w3-col m4" *ngIf = "(editBtn)"><input type = "text" value = "{{data.uploader}}" [(ngModel)] ="uploader"/></div>
+    <div class = "w3-col m4" *ngIf = "!(editBtn)">{{data.uploader}}</div>
+  </div>
+
+</div>
+<div mat-dialog-actions class = "w3-right">
+  <button mat-raised-button  (click)="onNoClick()">Close</button>
+  <button mat-raised-button color="primary" (click)="onNoClick()" >Ok</button>
+</div>

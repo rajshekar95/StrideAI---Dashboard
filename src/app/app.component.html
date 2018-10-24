@@ -1,0 +1,106 @@
+  <div class="w3-panel w3-card-4 w3-blue header">
+    <div class = "w3-left w3-padding-32">
+      <b> DASHBOARD </b>
+
+    </div>
+<div>
+  <span class=" .example-form  w3-right searchbar">
+
+    <mat-form-field class="example-full-width">
+  <textarea matInput placeholder="Search" [(ngModel)]="searchText" ></textarea>
+</mat-form-field>
+
+
+</span>
+</div>
+
+  </div>
+
+  <div class = "">
+    <div class = "w3-container w3-white innerContent">
+    <mat-accordion>
+<div *ngFor = "let item of items | filter : searchText" >
+      <mat-expansion-panel class = "cardDetails" >
+        <mat-expansion-panel-header class = "contentHeader" (click) = "openItem($event,item)">
+          <mat-panel-title>
+          Set ID : &nbsp;  {{item.set_id}} &nbsp; | &nbsp;&nbsp; Name: &nbsp; {{item.name}}
+
+
+          </mat-panel-title>
+          <mat-panel-description>
+            {{item.status}}
+
+          </mat-panel-description>
+          <mat-card-subtitle class = "subtitle">
+          <i class="fa fa-clock-o" ></i>  {{item.date_uploaded | date:'medium'}}
+          </mat-card-subtitle>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+
+        <div class="mat-elevation-z8 innerInnerBody">
+                  <table mat-table [dataSource]="dataSource" matSort>
+
+                    <ng-container matColumnDef="set_id">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Set Id</th>
+                      <td mat-cell *matCellDef="let row"> {{row.set_id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="doc_id">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Doc Id </th>
+                      <td mat-cell *matCellDef="let row"> {{row.doc_id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="name">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="status">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                      <td mat-cell *matCellDef="let row" > {{row.status}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="uploader">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Uploader </th>
+                      <td mat-cell *matCellDef="let row"> {{row.uploader}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="preview_url">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Preview Url </th>
+                      <td mat-cell *matCellDef="let row"> {{row.preview_url}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="date_uploaded">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> dateUploaded </th>
+                      <td mat-cell *matCellDef="let row" > {{row.date_uploaded | date:'medium'}} </td>
+                    </ng-container>
+
+                    <ng-container >
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+                      <td mat-cell *matCellDef="let row" > delete </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="rowClick(row)" matTooltip="Click to edit">
+                    </tr>
+                  </table>
+
+                    <mat-paginator   [pageSizeOptions]="[3]"></mat-paginator>
+
+
+
+                </div>
+
+      </mat-expansion-panel>
+
+
+</div>
+
+
+
+    </mat-accordion>
+  </div>
+</div>
