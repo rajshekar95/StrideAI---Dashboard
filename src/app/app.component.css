@@ -1,15 +1,17 @@
 .header{
 margin-top: 0px;
 height: 80px;
+background-image: linear-gradient(to top, #403926 , #50472f, #403926);
+color:#f1ebda;
 }
 .example-form {
   min-width:250px;
-  max-width: 500px;
-  width: 100%;
+  max-width: 400px;
+  color:white;
 }
 
 .example-full-width {
-  width: 100%;
+  max-width:400px;
   color: white;
 }
 .bodyContent{
@@ -18,13 +20,12 @@ height: 80px;
 min-height:550px;
 }
 .innerContent{
-  margin: 1%;
-  background-color: #f5f5f5;
+  background-color: #ece8df;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+min-height:600px;
 }
 .contentHeader{
-min-height: 110px;
-
+min-height: 90px;
 }
 table {
   width: 100%;
@@ -42,17 +43,18 @@ td, th {
     text-overflow: ellipsis;
 }
 tr{
-background-color:  #99c9ff
+background-color:  #a18e5e;
+color: white;
 }
 td{
   background-color:  #ffffff
 }
 .innerInnerBody{
-    background-color:  #e6f2ff;
+    background-color:  #f6f4ef;
     margin-bottom: 2%;
 }
 .cardDetails{
-  margin:1%;
+  margin-top:0.25%;
 }
 .dialogContent{
   margin:1%;
@@ -61,5 +63,17 @@ td{
   margin-right:1%;
 }
 .searchbar{
-  margin-right:5%;
+  margin-right:3%;
+}
+.header2{
+  padding-top:10px;
+  min-height:40px;
+  margin-bottom:0px;
+  background: #a18e5e;
+}
+.nameClass{
+  margin-left:280px;
+}
+.statusClass{
+  margin-left:50px;
 }

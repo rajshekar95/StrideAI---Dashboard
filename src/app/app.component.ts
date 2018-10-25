@@ -46,18 +46,16 @@ public showPagination = false;
     .subscribe(
           (data : any) => {
             this.items = data;
-              console.log( data);
+              
           },
           error => {
-              console.log("Rrror", error);
+              console.log("Error", error);
           }
       );
 }
 openItem($event,item){
   event.stopPropagation()
-  console.log(item);
   this.selectDocument = item.documents;
-  console.log(this.selectDocument);
   if(this.selectDocument.length > 3){
     this.showPagination = true;
   }else{
@@ -76,14 +74,13 @@ applyFilter(filterValue: string) {
   }
 
   rowClick(item){
-    console.log(item);
     const dialogRef = this.dialog.open(DialogForEditRow, {
       width: '1000px',
       data: item
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+   
       var set = item.set_id;
       if(result == 'delete'){
         var remInd = this.items.findIndex(function(item, i){
@@ -91,7 +88,7 @@ applyFilter(filterValue: string) {
         });
       var index =   this.items[remInd].documents.indexOf(item);
       this.items[remInd].documents.splice(index,1);
-      console.log(this.items);
+    
       this.selectDocument = this.items[remInd].documents;
       this.dataSource = new MatTableDataSource(this.selectDocument);
       this.dataSource.paginator = this.paginator;
@@ -133,7 +130,6 @@ public url : any;
     this.editBtn = !this.editBtn;
   }
   save(){
-    console.log(this.docid);
     this.data.doc_id = this.docid;
     this.data.preview_url = this.url;
     this.data.uploader = this.uploader;
@@ -156,7 +152,7 @@ export class FilterPipe implements PipeTransform {
     if(!searchText) return items;
 searchText = searchText.toLowerCase();
 return items.filter( it => {
-  console.log(it.set_id);
+  
        if(it.name.includes(searchText) || it.status.includes(searchText) ){
          return it;
        }
